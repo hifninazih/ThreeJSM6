@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praktikum GKV - ThreeJS_M6</title>
+    <link rel="stylesheet" href="/index.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="/main.js"></script>
+    <div
+      class="fixed container flex flex-col items-start w-full mx-auto sm:max-w-xl top-0 left-0 right-0"
+    >
+      <div
+        class="bg-gradient-to-tr from-blue-500 to-teal-300 sm:mt-4 p-4 sm:rounded-full w-full flex flex-col items-center text-center"
+      >
+        <h1 class="text-lg font-bold text-slate-50">
+          Praktikum GKV - ThreeJS_M6
+        </h1>
+        <p class="text-slate-100 text-sm">Coded by Hifnie</p>
+      </div>
+      <div class="flex flex-col w-full">
+        <div class="w-1/2 flex justify-items-start">
+          <div class="form-control">
+            <label class="cursor-pointer label">
+              <input
+                type="checkbox"
+                class="toggle toggle-info"
+                checked
+                id="ambientToggle"
+              />
+              <span class="label-text mx-2 font-bold text-slate-400"
+                >Ambient Light</span
+              >
+            </label>
+          </div>
+        </div>
+        <div class="w-1/2 flex justify-items-start">
+          <div class="form-control">
+            <label class="cursor-pointer label">
+              <input
+                type="checkbox"
+                class="toggle toggle-info"
+                checked
+                id="directionalToggle"
+              />
+              <span class="label-text mx-2 font-bold text-slate-400"
+                >Directional Light</span
+              >
+            </label>
+          </div>
+        </div>
+        <div class="w-1/2 flex justify-items-start">
+          <div class="form-control">
+            <label class="cursor-pointer label">
+              <input
+                type="checkbox"
+                class="toggle toggle-info"
+                checked
+                id="hemisphereToggle"
+              />
+              <span class="label-text mx-2 font-bold text-slate-400"
+                >Hemisphere Light</span
+              >
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      id="elems_loading"
+      class="loading loading-spinner loading-lg text-slate-50 fixed top-0 left-0 right-0 bottom-0 mx-auto my-auto"
+    ></span>
+    <div
+      class="fixed bg-gradient-to-tr from-blue-500 to-teal-300 containerflex flex-col items-center mx-auto sm:max-w-xl bottom-0 left-0 right-0 sm:mt-4 p-4 sm:rounded-2xl sm:my-10 hidden"
+      id="bawah"
+    >
+      <div class="flex items-center justify-center">
+        <div class="mr-4 hidden" id="elems_taskamera">
+          <input type="radio" id="taskamera" name="options" class="hidden" />
+          <label
+            for="taskamera"
+            class="flex items-center cursor-pointer background px-4 py-3 mx-1 my-2"
+          >
+            Camera Bag
+          </label>
+        </div>
+        <div class="mr-4 hidden" id="elems_rumah">
+          <input type="radio" id="rumah" name="options" class="hidden" />
+          <label
+            for="rumah"
+            class="flex items-center cursor-pointer background px-4 py-3 mx-1 my-2"
+          >
+            House
+          </label>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Get all radio buttons
+      const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+      // Add click event listener to each radio button
+      radioButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Reset styles for all labels
+          document.querySelectorAll("label").forEach((label) => {
+            label.classList.remove("selected");
+          });
+
+          // Apply background color to the selected label
+          const selectedLabel = document.querySelector(
+            `label[for="${this.id}"]`
+          );
+          selectedLabel.classList.add("selected");
+        });
+      });
+
+      // Select the first radio button by default
+      radioButtons[0].click();
+    </script>
+  </body>
+</html>
